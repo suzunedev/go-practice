@@ -34,6 +34,7 @@ func main() {
 		}
 		return c.JSON(http.StatusCreated, u)
 	})
+	e.Static("/static", "static")
 
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))
