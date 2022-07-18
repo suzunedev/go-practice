@@ -35,6 +35,7 @@ func main() {
 		return c.JSON(http.StatusCreated, u)
 	})
 	e.Static("/static", "static")
+	e.POST("/name", name)
 
 	// Group level middleware
 	g := e.Group("/admin")
@@ -109,4 +110,9 @@ func save(c echo.Context) error {
 	}
 
 	return c.HTML(http.StatusOK, "<b>Thank you! "+name+"</b>")
+}
+
+func name(c echo.Context) error {
+	name := c.FormValue("name")
+	return c.String(http.StatusOK, name)
 }
