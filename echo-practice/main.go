@@ -23,7 +23,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	// Routes
-	e.GET("/", hello)
+	e.GET("/hello", hello)
 	e.GET("users/:id", getUser)
 	e.GET("/show", show)
 	e.POST("/save", save)
